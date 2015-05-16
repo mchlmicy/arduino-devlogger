@@ -1,0 +1,94 @@
+body
+{   min-width: 501px;
+}
+
+.top
+{	margin-bottom: 30px;
+	margin-top: 60px;
+}
+
+/* Inputs */
+.input-group.input-group-hidden
+{   width: 100%;
+}
+.input-group.input-group-hidden input.form-control
+{   border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.input-group.input-group-hidden .input-group-addon
+{   display: none;
+}
+
+/* Links */
+a,a:hover,a:active,a:focus{outline: 0;}/* F*** Firefox */
+
+a.link-drkgray
+{	color: #555555;
+}
+a.link-drkgray:hover,
+a.link-drkgray:focus,
+a.link-drkgray:active
+{	color: #303030;
+}
+
+a.link-muted
+{	color: #999999;
+}
+a.link-muted:hover,
+a.link-muted:focus,
+a.link-muted:active
+{	color: #808080;
+}
+
+a.link-supermuted
+{	color: rgba(0,0,0,.2);
+}
+a.link-supermuted:hover,
+a.link-supermuted:focus,
+a.link-supermuted:active
+{	color: rgba(0,0,0,.5);
+}
+
+a.link-colorinherit,
+a.link-colorinherit:hover,
+a.link-colorinherit:focus,
+a.link-colorinherit:active
+{	color: inherit;
+}
+
+a.link-nounderline:hover,
+a.link-nounderline:focus
+{	text-decoration: none;
+}
+
+/* Responsive Tags */
+desktop,desktoptablet{display: inherit;}
+desktop_span,desktoptablet_span{display: inline-block;}
+mobile,mobile_span,mobiletablet,mobiletablet_span,tablet,tablet_span,superdesktop,superdesktop_span{display: none;}
+
+@media all and (max-width: 767px)
+{
+	mobile,mobiletablet{display: inherit;}
+    mobile_span,mobiletablet_span{display: inline-block;}
+    tablet,tablet_span,desktop,desktop_span,desktoptablet,desktoptablet_span{display: none;}
+}
+
+@media all and (min-width: 768px) and (max-width: 992px)
+{
+	mobiletablet,tablet,desktoptablet{display: inherit;}
+    mobiletablet_span,tablet_span,desktoptablet_span{display: inline-block;}
+	mobile,mobile_span,desktop,desktop_span{display: none;}
+}
+
+@media all and (min-width: 992px)
+{
+	desktop,desktoptablet{display: inherit;}
+	desktop_span,desktoptablet_span{display: inline-block;}
+	mobile,mobile_span,mobiletablet,mobiletablet_span,tablet,tablet_span{display: none;}
+}
+
+@media all and (min-width: 1200px)
+{
+    superdesktop{display: inherit}
+    superdesktop_span{display: inline-block}
+}

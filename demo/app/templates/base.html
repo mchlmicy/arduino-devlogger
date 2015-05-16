@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=420">
+        <meta name="author" content="Michael Young">
+
+        {% load staticfiles %}
+
+        <!-- Third-party JS files -->
+        <script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
+        <!-- Third-party CSS files -->
+        <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+        <!-- Globally applied CSS files -->
+        <link rel="stylesheet" href="{% static "css/css.css" %}">
+        <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+    </head>
+    <body>
+        {% block content %}
+            Empty page
+        {% endblock %}
+
+        <!-- Navigation bar, load with low priority -->
+        <nav class="demo navbar navbar-fixed-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="{% url 'app:index' %}">Demo</a></div></div></nav>
+    </body>
+</html>

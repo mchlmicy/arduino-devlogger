@@ -1,0 +1,166 @@
+/* navbar basics */
+.navbar.demo .navbar-header .navbar-brand{color: #ffffff;}
+.navbar.demo .navbar-header .navbar-toggle:hover{background-color: rgba(0,0,0,.5);}
+.navbar.demo .navbar-header .navbar-toggle .icon-bar{background-color: #ffffff;}
+
+/* mobile styles */
+@media all and (max-width: 767px)
+{
+	/* navbar basics */
+    .navbar.demo .navbar-header{background-color: #006080;}
+    .navbar.demo .container .navbar-brand{margin-left: 15px;}
+
+    /* menu backdrop */
+	.navbar.demo .navbar-collapse{background-color: rgba(255,255,255,.75); border-top: none; box-shadow: none; border-bottom: 1px solid rgba(0,0,0,.1); max-height: none;}
+
+	/* menu */
+    .navbar.demo .nav-actions-mobile{overflow-y: scroll;}
+
+    /* menu list */
+    .navbar.demo .nav-actions-mobile .nav li.list-container{border: 1px solid #e3e3e3; border-radius: 4px; max-height: 250px; overflow-y: scroll;}
+
+    /* menu list items */
+    .navbar.demo .nav-actions-mobile .nav li.list-container .item{background-color: transparent; border-radius: 0px; border-bottom: 1px solid #dddddd; color: #333333; display: block; padding: 10px 15px;}
+	.navbar.demo .nav-actions-mobile .nav li.list-container .item:last-child{border-bottom: none;}
+	.navbar.demo .nav-actions-mobile .nav li.list-container .item:hover, .navbar.demo .nav-actions-mobile .nav li.list-container .item:active{background-color: rgba(0,0,0,.025); color: #333333;}
+	.navbar.demo .nav-actions-mobile .nav li.list-container .item.new{background-color: rgba(255,255,0,.1);}
+	.navbar.demo .nav-actions-mobile .nav li.list-container .item.new:hover, .navbar.demo .nav-actions-mobile .nav li.list-container .item.new:active{background-color: rgba(255,255,0,.2);}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div{border-radius: 0px; clear: both; display: block; height: 40px;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:last-child{border-bottom: 1px solid #dddddd;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link:hover, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link:active, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:hover .div, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:active .div{background-color: rgba(0,0,0,.75);}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link:hover .link, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link:active .link, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:hover .div, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:active .link{color: #ffffff;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link .link:hover, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link .link:active, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:hover, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div:active{background-color: rgba(0,0,0,.25); color: #ffffff; text-decoration: none;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link .link, .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div .div{display: inline-block;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link .link:first-child{float: left; width: 82.5%;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div .div:first-child{float: left; width: 70%;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-link .link:last-child{float: right; text-align: center; width: 17.5%;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .multi-div .div:last-child{float: right; text-align: right; width: 30%;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container .link, .navbar.demo .nav-actions-mobile .nav li.list-container .div{background-color: transparent; border-radius: 0px; color: #404040; display: block; padding: 10px 15px;}
+	.navbar.demo .nav-actions-mobile .nav li.list-container .link:hover, .navbar.demo .nav-actions-mobile .nav li.list-container .link:active{background-color: rgba(0,0,0,.75); color: #ffffff;}
+    .navbar.demo .nav-actions-mobile .nav li.list-container hr{border-top: 1px solid #eeeeee; margin: 10px 0px;}
+	.navbar.demo .nav-actions-mobile .nav li.list-footer{margin-top: 7.5px;}
+	.navbar.demo .nav-actions-mobile .nav li.list-footer .footer{background-color: transparent; text-align: center;}
+	.navbar.demo .nav-actions-mobile .nav li.list-footer .footer:hover, .navbar.demo .nav-actions-mobile .nav li.list-footer .footer:active{background-color: transparent;}
+
+    /* menu list tabs */
+	.navbar.demo .nav-tabs{background-color: #005676; border-bottom: none;}
+	.navbar.demo .navbar-collapse .nav-tabs li{margin-bottom: 0px;}
+    .navbar.demo .navbar-collapse .nav-tabs li a{border-bottom-color: transparent; color: #ffffff;}
+	.navbar.demo .navbar-collapse .nav-tabs li a:hover{background-color: rgba(220,220,220,.95); color: #404040;}
+	.navbar.demo .navbar-collapse .nav-tabs li.active a
+	{	background-color: rgba(255,255,255,.95);
+		border-bottom-color: #ffffff;
+		color: #404040;
+	}
+	
+	.navbar.demo .navbar-collapse .nav-collapse .nav li a
+	{	border-radius: 4px;
+	}
+	.navbar.demo .navbar-collapse .nav-collapse .nav li a:hover
+	{	background-color: rgba(0,0,0,.1);
+	}
+}
+
+@media all and (min-width: 768px)
+{
+	/* navbar basics */
+    .navbar.demo .container .navbar-brand{margin-left: 0px;}
+
+    .navbar.demo{background-color: #006080;}
+
+    .navbar.demo .navbar-collapse
+    {   padding-right: 0px;
+    }
+    .navbar.demo .navbar-collapse .nav li a
+	{	color: #ffffff;
+	}
+	
+	.navbar.demo .navbar-collapse .nav li a:hover
+	{	background-color: transparent;
+	}
+	.navbar.demo .navbar-collapse .nav li.button a:hover,
+	.navbar.demo .navbar-collapse .nav li.button a:focus
+	{	background-color: rgba(0,0,0,.25);
+	}
+	
+	.navbar.demo .navbar-collapse .nav li.dropdown a
+	{	background-color: transparent;
+	}
+	.navbar.demo .navbar-collapse .nav li.dropdown.open a
+	{	background-color: rgba(0,0,0,.5);
+	}
+
+    .navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu-super
+    {   background-clip: padding-box;
+        background-color: #ffffff;
+        border: 1px solid rgba(0,0,0,.15);
+        box-shadow: 0px 6px 12px rgba(0,0,0,.175);
+        -webkit-box-shadow: 0px 6px 12px rgba(0,0,0,.175);
+        display: none;
+        left: 0px;
+        margin-top: 0px;
+        padding: 5px 0px;
+        position: fixed;
+        right: 0px;
+        width: 100%;
+        z-index: 1000;
+    }
+    .navbar.demo .navbar-collapse .nav li.dropdown.open .dropdown-menu-super
+    {   display: block;
+    }
+    .navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu hr
+	{	margin: 10px 0px;
+	}
+	.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu li.multi-link
+    {   height: 26px;
+
+    }
+    .navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu li.multi-link a
+    {   clear: none;
+        display: inline-block;
+        float: left;
+    }
+    .navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu li a
+	{	background-color: transparent;
+		color: #404040;
+	}
+	.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu li a:hover
+	{	background-color: rgba(0,0,0,.75);
+		color: #ffffff;
+	}	
+}
+
+/*Navbar Dropdown List-Item Classes*/
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group
+{	margin-bottom: 0px;
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group .list-group-item
+{	background-color: transparent;
+	border-bottom: none;
+	border-left: none;
+	border-radius: 0px;
+	border-right: none;
+	color: #333333;
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group .list-group-item.new
+{	background-color: rgba(255,255,0,.1);
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group .list-group-item.new:hover
+{	background-color: rgba(255,255,0,.2);
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group .list-group-item:hover
+{	background-color: rgba(0,0,0,.025);
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group-footer
+{	border-top: 1px solid #dddddd;
+	padding-bottom: 4px;
+	padding-top: 9px;
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group-footer a
+{	background-color: transparent;
+	color: #428bca;
+}
+.navbar.demo .navbar-collapse .nav li.dropdown .dropdown-menu .list-group-footer a:hover
+{	background-color: transparent;
+	color: #2a6496;
+}
