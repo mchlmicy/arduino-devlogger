@@ -25,8 +25,7 @@ int alarm_set = 0;
 bool dial_state = 1;
 
 // file paths
-const String django_manager = "/mnt/sdb1/demo/manage.py";
-const String db_path = "/mnt/sdb1/demo/db.sqlite3";
+const String django_manager = "/mnt/sdb1/demo/manage.py", db_path = "/mnt/sdb1/demo/db.sqlite3";
 
 // frequencies
 int frequencies[] = {110, 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494, 523, 554, 587, 622, 659, 698, 740, 784, 830, 880, 932, 988};
