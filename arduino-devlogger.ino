@@ -20,7 +20,6 @@ char alarm_notes[] = "iFbFiFbFiFbFiFbFiGbGiGbGiGbGiGbGlbjblbjblbjblbjbjaHajaHaja
 const int alarm_frequency = 900 /* test: 15 */, alarm_set_max = 4, alarm_tempo = 125;
 int alarm_set = 0;
 
-
 // dial
 bool dial_state = 1;
 
