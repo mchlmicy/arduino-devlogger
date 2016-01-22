@@ -10,7 +10,7 @@
 // INCLUDE - RTC
 #include "RTClib.h"
 
-// INCLUDE - TIMED EVENT 
+// INCLUDE - TIMED EVENT
 #include <TimedEvent.h>
 #define BLINK 1
 #define TIMER 2
@@ -24,7 +24,7 @@ int alarm_set = 0;
 bool dial_state = 1;
 
 // file paths
-const String django_manager = "/mnt/sdb1/demo/manage.py", db_path = "/mnt/sdb1/demo/db.sqlite3";
+const String django_manager = "/mnt/sdb1/site/manage.py", db_path = "/mnt/sdb1/site/db.sqlite3";
 
 // frequencies
 int frequencies[] = {110, 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494, 523, 554, 587, 622, 659, 698, 740, 784, 830, 880, 932, 988};
@@ -46,51 +46,51 @@ bool blink_state = HIGH, btn_state, btn_prev_state, timer_state = LOW;
 int time[4], timer = 0;
 
 // timestamp
-String timestamp_start, timestamp_end; 
+String timestamp_start, timestamp_end;
 
-void setup() 
+void setup()
 {
   // delay
   delay(3500); // so we can see awesome console setup :P
-  
+
   // serial
   Serial.begin(9600);
   Serial.println("serial connection established");
-  
+
   // bridge
   Serial.print("opening bridge connection...");
   Bridge.begin();
   Serial.println("SUCCESS");
-  
+
   // led display
   Serial.print("opening led connection...");
   matrix.begin(0x70);
   Serial.println("SUCCESS");
-  
+
   // rtc
   Serial.print("opening rtc connection...");
   rtc.begin(DateTime(F(__DATE__), F(__TIME__)));
   Serial.println("SUCCESS");
-  
+
   // pins
   Serial.print("setting pins...");
   pinMode(btn_pin, INPUT);
   pinMode(tone_pin, OUTPUT);
   Serial.println("SUCCESS");
-  
+
   // time events
   Serial.print("setting time events...");
   TimedEvent.addTimer(BLINK, 500, sec_blink);
   TimedEvent.addTimer(TIMER, 1000, run_timer);
   Serial.println("SUCCESS");
-  
+
   Serial.println("READY");
 }
 
 /************/
 /* The Loop */
 /************/
-void loop() 
+void loop()
 {
   TimedEvent.loop();
   update_state();
@@ -113,7 +113,7 @@ void run_timer(TimerInformation* Sender)
   write_timer(time);
   read_dialswitch();
   if(dial_state == 1){run_alarm(timer);}
-  if(alarm_set < alarm_set_max){alarm_set++;} else{alarm_set = 1;}  
+  if(alarm_set < alarm_set_max){alarm_set++;} else{alarm_set = 1;}
   timer++;
 }
 
@@ -121,14 +121,14 @@ void run_timer(TimerInformation* Sender)
 /* Functions */
 /*************/
 // alarm
-void alarm(int num_notes) 
+void alarm(int num_notes)
 {
     for(int x = 0; x < num_notes; x++)
     {
       tone(tone_pin, get_frequency(alarm_notes[x]), alarm_tempo);
-      delay(alarm_tempo); 
+      delay(alarm_tempo);
     }
-    
+
     int offset = ((alarm_tempo * num_notes) / 1000);
     if(offset > 0){offset--;}
     offset_timer(offset);
@@ -136,16 +136,16 @@ void alarm(int num_notes)
 
 
 // get frequency
-int get_frequency(char note) 
+int get_frequency(char note)
 {
   for (int y = 0; y < (sizeof(alarm_notes) - 2); y++)
   {
-    if (frequency_names[y] == note)         
+    if (frequency_names[y] == note)
     {
-      return(frequencies[y]); 
+      return(frequencies[y]);
     }
   }
-  return(0);  
+  return(0);
 }
 
 // get timestamp
@@ -154,23 +154,23 @@ String get_timestamp()
   DateTime now = rtc.now();
   int DateComponent[] = {now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second()};
   String temp_component, timestamp = "";
-  
+
   for(int x = 0; x < 6; x++)
   {
     temp_component = String(DateComponent[x]);
-    
+
     if(x != 0 && DateComponent[x] < 10){temp_component = "0" + temp_component;}
     if(x == 2){temp_component = temp_component + " ";}
     else if(x < 3){temp_component = temp_component + "-";}
     else if(x != 5 ){temp_component = temp_component + ":";}
-    
+
     timestamp = timestamp + temp_component;
   }
-  
+
   return timestamp + ".00000";
 }
 
-// offset timer 
+// offset timer
 void offset_timer(int offset)
 {
   timer = timer + offset;
@@ -179,17 +179,17 @@ void offset_timer(int offset)
 // parse time
 void parse_time(int timer)
 {
-  if(timer < 60){time[0] = 0, time[1] = 0; time[2] = (timer/10) % 10, time[3] = timer % 10;} 
+  if(timer < 60){time[0] = 0, time[1] = 0; time[2] = (timer/10) % 10, time[3] = timer % 10;}
   else if(timer < 3600)
   {
-    int timer_minute = timer / 60, timer_second = timer % 60; 
+    int timer_minute = timer / 60, timer_second = timer % 60;
     time[0] = timer_minute / 10, time[1] = timer_minute % 10, time[2] = timer_second / 10, time[3] = timer_second % 10;
   }
   else
   {
-    int timer_hour = timer / 3600, timer_minute = (timer / 60) - (timer_hour * 60); 
+    int timer_hour = timer / 3600, timer_minute = (timer / 60) - (timer_hour * 60);
     time[0] = timer_hour / 10, time[1] = timer_hour % 10, time[2] = timer_minute / 10, time[3] = timer_minute % 10;
-  } 
+  }
 }
 
 // push data
@@ -252,11 +252,11 @@ void update_timer(bool state)
   else
   {
     timestamp_end = get_timestamp();
-    TimedEvent.stop(BLINK); 
+    TimedEvent.stop(BLINK);
     TimedEvent.stop(TIMER);
     push_data();
     reset();
-    Serial.println("timer status: OFF"); 
+    Serial.println("timer status: OFF");
   }
 }
 
@@ -269,6 +269,6 @@ void write_timer(int time[])
   matrix.writeDigitNum(3, time[2], false);
   matrix.writeDigitNum(4, time[3], true);
   matrix.writeDisplay();
-  
+
   Serial.println(timer);
 }
